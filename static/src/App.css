@@ -1,0 +1,53 @@
+/******************************************* navbar **********************************************/
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  font-family: arial, sans-serif;
+  margin: 0 50px;
+}
+
+
+
+.size-page {
+  width: 80%;
+  margin: auto;
+}
+
+.box-create-shelf {
+  display: flex;
+  justify-content: space-between;
+  margin: 30px 0;
+  border-radius: 10px;
+  background-color: #f8ba1e50;
+  text-align: center;
+  align-items: center;
+  padding: 5px 20px;
+  z-index: 9999;
+  box-shadow: 8px 10px 4px 0 rgb(0, 0, 0, 0.5);
+}
+
+.button-create-shelf {
+  background-color: #f8ba1e;
+  padding: 5px 10px ;
+  border-radius: 5px;
+  cursor: pointer;
+  box-shadow: 2px 4px 4px 0 rgb(0, 0, 0, 0.5);
+}
+
+.button-create-shelf:hover {
+  background-color: #fab300;
+}
+
+.button-keluar-barang{
+  box-shadow: 2px 4px 4px 0 rgb(0,0,0,0.5);
+  padding: 7.5px 20px; 
+  border-radius: 5px; 
+  border: none; 
+  background-color: #f8ba1e;
+  color: white;
+  font-weight: bold;
+}
+
+.button-keluar-barang:hover {
+  background-color: #fab300;
+}
