@@ -2,6 +2,7 @@ import React, { useState, useEffect, useContext, CreateContext, useRef} from "re
 import { useNavigate, useLocation } from "react-router-dom";
 import Navbar from "./component/navbar";
 import axios from "axios"
+import { ContanerCreateSRB } from "./component/conCreateSRB";
 
 function Home() {
     const [ dataShelf, setDataShelf ] = useState([]);
@@ -127,7 +128,9 @@ function Home() {
     }
     return(
         <div style={{fontFamily: 'arial, sans-serif', minHeight: '100vh'}}>
-            <Navbar/>
+            <div style={{ zIndex: '99999', position:'relative' }}>
+                <Navbar/>
+            </div>
             <div className="size-page">
                 <div className="box-create-shelf">
                     <div >
@@ -140,12 +143,12 @@ function Home() {
                             <h8>Shelf</h8>
                         </div>
                         <div style={style.boxCreateInfo}>
-                            <div style={{backgroundColor: '#00BFFF', marginRight: '10px', width: '10px', height: '10px', borderRadius: '10px'}}/>
+                            <div style={{backgroundColor: '#32CD32', marginRight: '10px', width: '10px', height: '10px', borderRadius: '10px'}}/>
                             <h8>Row</h8>
                         </div>
                         <div style={style.boxCreateInfo}>
                             <div style={{backgroundColor: '#9400D3', marginRight: '10px', width: '10px', height: '10px', borderRadius: '10px'}}/>
-                            <h8>Block</h8>
+                            <h8>Blok</h8>
                         </div>
                         <div  style={{ display: 'flex',  alignItems: 'center'}}>
                             <div style={{backgroundColor: '#4B0082', marginRight: '10px', width: '10px', height: '10px', borderRadius: '10px'}}/>
@@ -179,7 +182,7 @@ function Home() {
                                             </div>
                                             <div style={{display: 'flex', width: '30%'}}>
                                                 <img src={require("./images/block.png")} style={style.imageDetail}/>
-                                                <h6 style={{alignItems: 'center'}}>{shelf.kapasitas_block} Block</h6>
+                                                <h6 style={{alignItems: 'center'}}>{shelf.kapasitas_block} Blok</h6>
                                             </div>
                                             <div style={{display: 'flex', width: '40%'}}>
                                                 <img src={require("./images/boxs.png")} style={style.imageDetail}/>
@@ -201,7 +204,7 @@ function Home() {
                     </a>
                 ))}
             </div>
-            { boxInputCapacityRow && (
+            {/* { boxInputCapacityRow && (
                 <div style={{position: 'fixed', right: '40%', alignItems: 'center', textAlign: 'center', top:'40%', backgroundColor: '#f8ba1e', borderRadius: '10px', padding: '40px 40px 20px 40px'}}>
                     <button onClick={handleCloseInputCapacityRow} type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close" style={{position: 'absolute', top: '5px', right: '5px'}}></button>
                         <div  style={{ textAlign: 'start', color: 'white'}}>
@@ -209,6 +212,12 @@ function Home() {
                             <input type="number" value={capacityRow} required onChange={(e) => handleInputValue(e)} style={{border: 'none', height: '35px', borderRadius: '5px', outline: 'none'}}/>
                         </div>
                         <button onClick={handleCreateShelf} style={{outline: 'none', border: 'none', borderRadius: '5px', padding: '7px 14px', marginTop: '15px', backgroundColor: 'red', color: 'white'}}>Create Shelf</button>
+                </div>
+            )} */}
+            { boxInputCapacityRow && (
+                <div style={{backgroundColor: 'rgb(0,0,0,0.5)', height: '100vh', marginTop: '90px', position: 'absolute', width: '100%', top: '0', zIndex: '9999'}}>
+                    <button onClick={handleCloseInputCapacityRow} style={{position: 'absolute', right: '10px', top: '15px', zIndex: '99999'}} type="button" class="btn-close text-light" aria-label="Close"></button>
+                    < ContanerCreateSRB component={"Shelf"} capacityName={"Row"} capacityAmount={handleInputValue} handleSubmit={handleCreateShelf}/>
                 </div>
             )}
         </div>

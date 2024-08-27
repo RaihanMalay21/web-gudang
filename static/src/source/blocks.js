@@ -2,6 +2,7 @@ import React, { useEffect, useState, createContext } from "react";
 import Navbar from "./component/navbar";
 import { useAsyncError, useLocation, useNavigate } from "react-router-dom";
 import axios from "axios";
+import { ContanerCreateSRB } from "./component/conCreateSRB";
 
 export const Blocks = () => {
     const location = useLocation(); 
@@ -135,10 +136,12 @@ export const Blocks = () => {
 
     return (
         <div>
-            <Navbar/>
+            <div style={{ position: 'relative', zIndex: '999'}}>
+                <Navbar/>
+            </div>
             <div className="size-page">
                 { alertKoutaHabis && (
-                        <div class="alert alert-primary d-flex align-items-center" role="alert" style={{width: '50%', margin: 'auto', position: 'fixed', left: '26%'}}>
+                        <div class="alert alert-primary d-flex align-items-center" role="alert" style={{width: '50%', margin: 'auto', position: 'fixed', left: '26%', top: '11%', zIndex: '999'}}>
                             <svg xmlns="http://www.w3.org/2000/svg" style={{width: '18px', height: '18px'}} class="bi bi-exclamation-triangle-fill flex-shrink-0 me-2" viewBox="0 0 16 16" role="img" aria-label="Warning:">
                                 <path d="M8.982 1.566a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566zM8 5c.535 0 .954.462.9.995l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995A.905.905 0 0 1 8 5zm.002 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
                             </svg>
@@ -150,7 +153,7 @@ export const Blocks = () => {
                 <div className="box-create-shelf">
                     <div>
                         <img src={require("./images/block.png")} style={{height: '60px', width: '60px', marginRight: '5px'}}/>
-                        <h8 style={{fontSize: '18px'}}>{ dataBlocks.length } Block</h8>
+                        <h8 style={{fontSize: '18px'}}>{ dataBlocks.length } Blok</h8>
                     </div>
                     <div style={{display: 'flex'}}>
                         <div style={style.boxCreateInfo}>
@@ -158,17 +161,21 @@ export const Blocks = () => {
                             <h8>Shelf</h8>
                         </div>
                         <div style={style.boxCreateInfo}>
-                            <div style={{color: '#00BFFF', marginRight: '10px', fontSize: '22.5px', fontWeight: 'bold', textTransform: 'uppercase'}}>{nomor_row}</div>
+                            <div style={{color: '#32CD32', marginRight: '10px', fontSize: '22.5px', fontWeight: 'bold', textTransform: 'uppercase'}}>{nomor_row}</div>
                             <h8>Row</h8>
                         </div>
                         <div style={style.boxCreateInfo}>
                             <div style={{backgroundColor: '#9400D3', marginRight: '10px', width: '10px', height: '10px', borderRadius: '10px'}}/>
-                            <h8>Block</h8>
+                            <h8>Blok</h8>
                         </div>
                         <div  style={{ display: 'flex',  alignItems: 'center'}}>
                             <div style={{backgroundColor: '#4B0082', marginRight: '10px', width: '10px', height: '10px', borderRadius: '10px'}}/>
                             <h8>Barang</h8>
                         </div>
+                    </div>
+                    <div className="capacity-create-box">
+                        <h8 style={{marginRight: '10px'}}>Capacity :</h8>
+                        <h8>{capacity_block} Block</h8>
                     </div>
                     <div className="button-create-shelf">
                         <a onClick={handleOpenBox}>
@@ -176,7 +183,7 @@ export const Blocks = () => {
                             <path d="M14 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2z"/>
                             <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4"/>
                             </svg>
-                            <h7 style={{fontSize: "18px", marginLeft: '5px'}}>Create Block</h7>
+                            <h7 style={{fontSize: "18px", marginLeft: '5px'}}>Create Blok</h7>
                         </a>
                     </div>
                 </div>
@@ -205,10 +212,10 @@ export const Blocks = () => {
                                     </div>
                                     <div style={{ textAlign: 'center'}}>
                                         <h5>Row</h5>
-                                        <h1 style={{color: '#00BFFF', fontSize: '50px', marginTop: '-5px', textTransform: 'uppercase'}}>{nomor_row}</h1>
+                                        <h1 style={{color: '#32CD32', fontSize: '50px', marginTop: '-5px', textTransform: 'uppercase'}}>{nomor_row}</h1>
                                     </div>
                                     <div style={{ textAlign: 'center'}}>
-                                        <h5>Block</h5>
+                                        <h5>Blok</h5>
                                         <h1 style={{color: '#9400D3', fontSize: '50px', marginTop: '-5px', textTransform: 'uppercase'}}>{block.nomor_block}</h1>
                                     </div>
                                 </div>
@@ -217,7 +224,7 @@ export const Blocks = () => {
                     </a>
                 ))}
             </div>
-            { boxCreateBlock && (
+            {/* { boxCreateBlock && (
                 <div style={{position: 'fixed', right: '40%', alignItems: 'center', textAlign: 'center', top:'40%', backgroundColor: '#f8ba1e', borderRadius: '10px', padding: '40px 40px 20px 40px'}}>
                     <button onClick={handleCloseBoxCreate} type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close" style={{position: 'absolute', top: '5px', right: '5px'}}></button>
                         <div  style={{ textAlign: 'start', color: 'white'}}>
@@ -225,6 +232,12 @@ export const Blocks = () => {
                             <input type="number" value={capacityBarang} required onChange={(e) => handleInputValue(e)} style={{border: 'none', height: '35px', borderRadius: '5px', outline: 'none'}}/>
                         </div>
                         <button onClick={handleCreateBlock} style={{outline: 'none', border: 'none', borderRadius: '5px', padding: '7px 14px', marginTop: '15px', backgroundColor: 'red', color: 'white'}}>Create Block</button>
+                </div>
+            )} */}
+            { boxCreateBlock && (
+                <div style={{backgroundColor: 'rgb(0,0,0,0.5)', height: '100vh', marginTop: '90px', position: 'absolute', width: '100%', top: '0', zIndex: '99'}}>
+                    <button onClick={handleCloseBoxCreate} style={{position: 'absolute', right: '10px', top: '15px', zIndex: '99999'}} type="button" class="btn-close text-light" aria-label="Close"></button>
+                    <ContanerCreateSRB component={"Blok"} capacityName={"Barang"} capacityAmount={handleInputValue} handleSubmit={handleCreateBlock}/>
                 </div>
             )}
         </div>   

@@ -14,6 +14,7 @@
 }
 
 .box-create-shelf {
+  position: relative;
   display: flex;
   justify-content: space-between;
   margin: 30px 0;
@@ -22,7 +23,7 @@
   text-align: center;
   align-items: center;
   padding: 5px 20px;
-  z-index: 9999;
+  z-index: 99;
   box-shadow: 8px 10px 4px 0 rgb(0, 0, 0, 0.5);
 }
 
@@ -32,6 +33,16 @@
   border-radius: 5px;
   cursor: pointer;
   box-shadow: 2px 4px 4px 0 rgb(0, 0, 0, 0.5);
+}
+
+.capacity-create-box {
+  display: flex;
+  font-family: Times, "Times New Roman", Georgia, serif; 
+  position: absolute; 
+  color: rgb(0,0,0,0.35); 
+  font-size: 17px; 
+  top: 30%; 
+  right: 20%;
 }
 
 .button-create-shelf:hover {
@@ -50,4 +61,16 @@
 
 .button-keluar-barang:hover {
   background-color: #fab300;
+}
+
+.button-create-barang {
+  padding: 10px 40px; 
+  background-color: #4B0082; 
+  color: white;
+  border-radius: 5px;
+  border: 1px solid white;
+}
+
+.button-create-barang:hover {
+  background-color: #4B0082;
 }
