@@ -172,7 +172,7 @@ function Home() {
                                 <div style={{ width: '15%' }}>
                                     <img src={require("./images/shelf.png")} style={{ height: '80px', width: '80px'}}/>
                                 </div>
-                                <div style={{width: '100%', textAlign: 'start', alignItems: 'center'}}>
+                                <div style={{width: '80%', textAlign: 'start', alignItems: 'center'}}>
                                     <div style={{ display: 'flex', marginBottom: '2px', alignItems: 'center'}}>
                                         <h5 style={{width: '20%'}}>Capacity :</h5>
                                         <div style={{ display: 'flex', alignItems: 'center', width: '75%'}}>
@@ -187,10 +187,6 @@ function Home() {
                                             <div style={{display: 'flex', width: '40%'}}>
                                                 <img src={require("./images/boxs.png")} style={style.imageDetail}/>
                                                 <h6 style={{alignItems: 'center'}}>{shelf.kapasitas_barangs} Barang</h6>
-                                            </div>
-                                            <div style={style.boxShelf}>
-                                                <div style={{backgroundColor: '#4B0082', marginRight: '15px', width: '10px', height: '10px', borderRadius: '10px'}}/>
-                                                <h8>{shelf.total_barangs}</h8>
                                             </div>
                                         </div>
                                     </div>
